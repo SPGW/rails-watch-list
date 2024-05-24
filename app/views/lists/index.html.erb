@@ -1,14 +1,26 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)) , url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+  <div class="container">
+    <h1>Movie Lists!</h1>
+  </div>
+</div>
+
 <div class="container">
-  <h2>Lists List</h2>
+  <h2>List</h2>
 
   <%# List of Lists: %>
   <ul>
   <% @lists.each do |list|%>
     <li><%= link_to list.name, list_path(list)%></li>
-  <% end %>
+    <%# button to delete %>
+    <p><%= link_to "Delete", list_path(list),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+    <% end %>
   </ul>
-
-  <%# Link to create new List %>
-  <%= link_to 'New', new_list_path, class: "p-2 btn btn-primary"%>
+  <div>
+    <%# Link to create new List %>
+    <%= link_to 'New', new_list_path, class: "p-2 btn btn-primary"%>
+  </div>
+<%# image test %>
+<br>
 
 </div>
